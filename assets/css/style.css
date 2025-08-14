@@ -1,0 +1,45 @@
+body {
+    background-image: url("./assets/image/imagem-fundo.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  padding: 0 24px;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family:Arial, Helvetica, sans-serif;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0);
+}
+div{
+background: #4b5c49;
+padding: 8vh;
+text-align: center;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: center;
+}
+button {
+  background-color: #f1c21a;
+  border: none;
+  border-radius: 35px;
+  color: #4b5c49;
+  font-weight: 9000;
+  padding: 3px;
+}
+h1{
+  margin-top: 0;
+  text-align: center;
+}
+img{
+  max-width: 40vw;
+  margin-top: 5vh;
+}
+p{
+  text-align: center;
+}

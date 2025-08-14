@@ -4,23 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="./src/script.js" defer></script>
     <title>Calculadora</title>
 </head>
 <body>
-    <div id="caixa" style="
-    display: inline-grid;
-    padding: 4%;
-    align-items: center;
-    background-color: #4b5c49;
-">
+    <div>
         <h2>Calculadora de idade</h2>
         <p>Informe sua idade</p>
-    <form action=""><input type="date" name="datadenascimento" id="data"></form>
-        <button>Calcular</button>
-
-        
+    <form action="">
+        <label for="ano">informe seu ano de nascimento</label>
+        <input type="date" name="datadenascimento" id="data">
+        <button type="button" id="calculo">Calcular</button></form>
         <p>Por favor, insira um ano valido para sua data de nascimento</p>
-    <img src="/assets/image/logo-projeto.png" alt="">    
+        <p id="resposta"> </p>
+    <img src="./assets/image/logo-projeto.png" alt="">    
     </div>
 </body>
 </html>
