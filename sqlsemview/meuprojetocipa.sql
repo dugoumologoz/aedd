@@ -168,7 +168,6 @@ CREATE TABLE usuario (
     cpf_usuario VARCHAR(14) NOT NULL,
     telefone_usuario VARCHAR(20),
     codigo_voto_usuario VARCHAR(100) NOT NULL,
-    data_codigo_expiracao DATETIME NULL,
     ultimo_acesso DATETIME NULL
 );
 
@@ -181,7 +180,6 @@ CREATE TABLE eleicao (
     data_fim_eleicao DATETIME NOT NULL,
     ativo_eleicao BOOLEAN DEFAULT TRUE,
     status_eleicao ENUM('agendada','andamento','encerrada','cancelada') DEFAULT 'agendada',
-    permite_voto_branco BOOLEAN DEFAULT TRUE
 );
 
 
@@ -190,8 +188,6 @@ CREATE TABLE candidato (
     funcionario_fk INT NOT NULL,
     foto_candidato VARCHAR(255) NOT NULL,
     numero_candidato INT NOT NULL,
-    vice_fk INT NOT NULL,
-    eleicao_fk INT NOT NULL,
     data_registro_candidato DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (funcionario_fk) REFERENCES usuario(id_usuario),
     FOREIGN KEY (vice_fk) REFERENCES usuario(id_usuario),
@@ -209,7 +205,6 @@ CREATE TABLE documentos (
     tipo_documento ENUM('edital','ata','regulamento','outros') NOT NULL,
     data_inicio_documento DATE NOT NULL,
     data_fim_documento DATE NOT NULL,
-    eleicao_fk INT NOT NULL,
     FOREIGN KEY (eleicao_fk) REFERENCES eleicao(id_eleicao)
 );
 
@@ -231,10 +226,8 @@ CREATE TABLE voto (
     id_voto INT PRIMARY KEY AUTO_INCREMENT,
     funcionario_fk INT NOT NULL,
     eleicao_fk INT NOT NULL,
-    lista_candidato_fk INT NULL,
     data_hora_voto DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     ip_voto VARCHAR(45),
-    hash_confirmacao VARCHAR(64) NOT NULL,
     FOREIGN KEY (funcionario_fk) REFERENCES usuario(id_usuario),
     FOREIGN KEY (eleicao_fk) REFERENCES eleicao(id_eleicao),
     FOREIGN KEY (lista_candidato_fk) REFERENCES lista_candidatos(id_lista_candidato),
@@ -249,6 +242,7 @@ CREATE TABLE branco_nulo (
     FOREIGN KEY (eleicao_fk) REFERENCES eleicao(id_eleicao),
     UNIQUE KEY uk_eleicao (eleicao_fk)
 );
+
 
 
 
